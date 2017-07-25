@@ -37,3 +37,20 @@ week3
 - Medication: prescription table
 - Lab Test: labe event table JOIN D_labitem table ON d_labitem(key)
 
+SQL code :
+1. select icd9_code, long_title from d_icd_diagnoses where long_title like '%neoplasm%'
+
+2. select subject_id,  hadm_id,  left_t.icd9_code , long_title
+from diagnoses_icd as left_t
+left join d_icd_diagnoses as right_t
+on left_t.icd9_code = right_t.icd9_code
+where long_title like '%neoplasm%'
+order by subject_id asc, icd9_code asc
+
+3. select distinct (subject_id, left_t.icd9_code) , long_title
+from diagnoses_icd as left_t
+left join d_icd_diagnoses as right_t
+on left_t.icd9_code = right_t.icd9_code
+where long_title like '%neoplasm%'
+
+
