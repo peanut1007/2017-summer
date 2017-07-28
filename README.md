@@ -59,7 +59,7 @@ from labevents as left_t
 left join d_labitems as right_t
 on left_t.itemid = right_t.itemid
 
-5.  select * from (select subject_id,  hadm_id,  left_t.itemid, label, valuenum, valueuom, flag
+5. select * from (select subject_id,  hadm_id,  left_t.itemid, label, valuenum, valueuom, flag
 from labevents as left_t
 left join d_labitems as right_t
 on left_t.itemid = right_t.itemid) as left_q
@@ -72,5 +72,3 @@ where long_title like '%neoplasm%'
 order by subject_id asc, icd9_code asc
 ) as right_q
 on left_q.subject_id = right_q.subject_id
-order by left_q.subject_id
-
